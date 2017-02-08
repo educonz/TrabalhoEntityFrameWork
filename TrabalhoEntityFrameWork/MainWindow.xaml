@@ -1,0 +1,44 @@
+﻿<Window x:Class="TrabalhoEntityFrameWork.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TrabalhoEntityFrameWork"
+        mc:Ignorable="d"
+        Title="Funcionários" Height="350" Width="525"
+        WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <Button Grid.Row="0" Height="30" Margin="10" FontSize="14" Width="70" HorizontalAlignment="Left" Content="Novo + " VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Click="Button_Click"/>
+
+        <DataGrid Grid.Row="1" 
+                  Margin="10" 
+                  CanUserAddRows="False" 
+                  CanUserDeleteRows="False"
+                  AutoGenerateColumns="False"
+                  Name="funcionariosGRID">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Nome" FontSize="12" Binding="{Binding Nome}" Width="*"/>
+                <DataGridTextColumn Header="Cargo" FontSize="12" Binding="{Binding Cargo}" Width="*"/>
+                <DataGridTemplateColumn Width="50">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Click="Button_Click_Editar">Editar</Button>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn Width="50">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Click="Button_Click_Excluir">Excluir</Button>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</Window>
